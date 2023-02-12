@@ -2,7 +2,7 @@
 
 services:
 - type: web
-  name: django-quick-start
+  name: bookserver
   env: python
   plan: starter
   buildCommand: ./build.sh
@@ -13,7 +13,7 @@ services:
       value: 4
     - key: DATABASE_URL
       fromDatabase:
-        name: django-quick-start
+        name: bookserver
         property: connectionString
     - key: DJANGO_SECRET_KEY
       generateValue: true
@@ -23,6 +23,6 @@ services:
       value: config.settings.production
 
 databases:
-- name: django-quick-start
+- name: bookserver
   databaseName: django
   user: django
